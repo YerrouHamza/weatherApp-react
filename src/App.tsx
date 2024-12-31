@@ -1,14 +1,9 @@
-import ControlsBar from "./views/controlsBar"
-import WeatherDetails from "./views/weatherDetails"
+import WeatherPage from "./views/weatherPage"
 
 function App() {
   return (
     <main className="min-h-screen bg-slate-100">
-      <div className="max-w-screen-xl mx-auto">
-        <ControlsBar />
-
-        <WeatherDetails />
-      </div>
+      <WeatherPage />
     </main>
   )
 }

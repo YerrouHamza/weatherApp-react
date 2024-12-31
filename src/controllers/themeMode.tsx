@@ -22,7 +22,7 @@ export default function ThemeMode() {
         >
             <ModeIcon 
                 theme={theme as Theme} 
-                className='size-7 text-gray-500'
+                className='size-9 text-gray-500'
             />
         </button>
     )
