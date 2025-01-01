@@ -1,27 +1,22 @@
-import { useState } from 'react';
-import { IconBulbFilled, IconBulbOff} from '@tabler/icons-react';
+import { IconBulbFilled, IconBulbOff } from '@tabler/icons-react';
+import useThemeMode, { ThemeModeType } from '../hooks/useThemeMode';
 
-enum Theme {
-    Light = 'light',
-    Dark = 'dark'
-}
-
-const ModeIcon = ({theme, className}: {theme: Theme; className?: string}) => {
+const ModeIcon = ({ theme, className }: { theme: ThemeModeType; className?: string }) => {
     if (theme === 'light') return <IconBulbFilled className={className} />
 
     return <IconBulbOff className={className} />
 }
 
 export default function ThemeMode() {
-    const [theme, setTheme] = useState('light')
+    const [themeMode, handleToggleThemeMode] = useThemeMode();
 
     return (
         <button 
             className='flex flex-col items-center'
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            onClick={() => handleToggleThemeMode(themeMode === 'light' ? 'dark' : 'light')}
         >
             <ModeIcon 
-                theme={theme as Theme} 
+                theme={themeMode as ThemeModeType} 
                 className='size-9 text-gray-500'
             />
         </button>

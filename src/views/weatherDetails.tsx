@@ -1,5 +1,5 @@
 export default function WeatherDetails() {
   return (
-    <div>weatherDetails</div>
+    <div className="dark:text-gray-300">weatherDetails</div>
   )
 }
