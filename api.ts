@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://api.weatherapi.com/v1/current.json",
+  baseURL: "http://api.weatherapi.com/v1",
 });
 
 api.interceptors.request.use(

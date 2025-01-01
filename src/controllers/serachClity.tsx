@@ -9,7 +9,7 @@ export default function SerachClity() {
             <IconSearch className="text-gray-400" />
             <input
                 value={search}
-                className="bg-transparent w-full px-2 focus:outline-none"
+                className="bg-transparent w-full px-2 focus:outline-none dark:text-gray-600"
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search city"
             />
