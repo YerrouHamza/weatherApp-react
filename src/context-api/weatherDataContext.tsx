@@ -2,21 +2,27 @@ import { createContext, useEffect, useState } from "react";
 import api from "../../api";
 
 type WeatherContextType = {
-    weather: object,
+    weatherDetails: object,
+    weatherForecast: object,
+    weatherLocation: object,
     setCity: (value: string) => void
 }
 
 export const WeatherData = createContext<WeatherContextType | null>(null)
 
-
 export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => {
-    const [weather, setData] = useState<object>({})
+    const [weatherDetails, setWeatherDetails] = useState<object>({})
+    const [weatherForecast, setWeatherForecast] = useState<object>({})
+    const [weatherLocation, setWeatherLocation] = useState<object>({})
     const [city, setCity] = useState<string>('london')
 
     useEffect(() => {
         api.get(`forecast.json?aqi=yes&days=8&q=${city}`)
             .then((res) => {
-                setData(res.data)
+                const data = res?.data
+                setWeatherDetails(data?.current)
+                setWeatherForecast(data.forecast)
+                setWeatherLocation(data.location)
             })
             .catch((error) => {
                 throw new Error('Error while request the data from API')
@@ -24,7 +30,7 @@ export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => 
     }, [city])
 
     return (
-        <WeatherData.Provider value={{weather, setCity}}>
+        <WeatherData.Provider value={{weatherDetails, weatherForecast, weatherLocation, setCity}}>
             {children}
         </WeatherData.Provider>
     )
