@@ -8,7 +8,7 @@ export default function LayoutDefualt({children}: {children: React.ReactNode}) {
     const {isLoading} = context;
     
     return (
-        <main className="min-h-screen bg-slate-100 dark:bg-slate-900 text-gray-900 dark:text-gray-100 duration-300 transition-all">
+        <main className="min-h-screen bg-gradient-to-tr from-yellow-100 to-blue-400 transition-all">
             {isLoading && <LoaderOverlay />}
             {children}
         </main>

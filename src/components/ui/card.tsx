@@ -10,7 +10,7 @@ export default function Card({
     bodyClass?: string
 }) {
   return (
-    <div className={cn('w-full h-full shadow rounded-lg dark:shadow-white', className)}>
+    <div className={cn('w-full h-full shadow rounded-xl bg-gray-200 bg-opacity-15 backdrop-blur-md', className)}>
         <div className={cn('p-5', bodyClass)}>
             {children}
         </div>
