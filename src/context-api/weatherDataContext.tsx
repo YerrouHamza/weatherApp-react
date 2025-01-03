@@ -2,9 +2,9 @@ import { createContext, useEffect, useState } from "react";
 import api from "../../api";
 
 type WeatherContextType = {
-    weatherDetails: object,
-    weatherForecast: object,
-    weatherLocation: object,
+    weatherDetails: any,
+    weatherForecast: any,
+    weatherLocation: any,
     setCity: (value: string) => void
 }
 
