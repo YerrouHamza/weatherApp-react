@@ -2,7 +2,6 @@ import moment from "moment";
 import { useContext } from "react";
 import { WeatherData } from "../context-api/weatherDataContext";
 import Card from './ui/card'
-import { cn } from "../lib/utils";
 
 export default function WeatherLocationCard({className}:{className: string}) {
     const context = useContext(WeatherData)
