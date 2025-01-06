@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { WeatherData } from "../context-api/weatherDataContext";
 import Card from './ui/card'
 import SunCondation from "./ui/sunCondation";
+import CurrentCondation from "./currentCondation";
 
 export default function WeatherDetailsCard({className}:{className: string}) {
     const [todayForecast, setTodayForecast] = useState<any>({})
@@ -12,9 +13,7 @@ export default function WeatherDetailsCard({className}:{className: string}) {
 
     useEffect(() => {
         const todayForecast = weatherForecast?.forecastday
-        
         if (todayForecast && todayForecast.length > 0) {
-            console.log(todayForecast[0].astro);
             setTodayForecast(todayForecast[0].astro)
         }
     }, [weatherForecast])
@@ -32,7 +31,7 @@ export default function WeatherDetailsCard({className}:{className: string}) {
                     <SunCondation type='sunset' time={todayForecast?.sunset} />
                 </div>
             </div>
-            <div className=""></div>
+            <CurrentCondation />
             <div className=""></div>
         </Card>
     )
