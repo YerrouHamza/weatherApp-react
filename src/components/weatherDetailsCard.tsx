@@ -1,8 +1,7 @@
-import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { WeatherData } from "../context-api/weatherDataContext";
 import Card from './ui/card'
-import { IconSunrise, IconSunset } from "@tabler/icons-react";
+import SunCondation from "./ui/sunCondation";
 
 export default function WeatherDetailsCard({className}:{className: string}) {
     const [todayForecast, setTodayForecast] = useState<any>({})
@@ -23,26 +22,14 @@ export default function WeatherDetailsCard({className}:{className: string}) {
 
     return (
         <Card className={className} bodyClass="grid grid-cols-3 h-full">
-            <div className="flex justify-between flex-col">
+            <div className="flex justify-center flex-col gap-7">
                 <div className="">
                     <h4 className="text-6xl font-bold text-gray-800">{weatherDetails.temp_c}°<span>C</span></h4>
                     <h5 className="text-xl font-semibold text-gray-700">Feels Like: {weatherDetails.feelslike_c}°<span>C</span></h5>
                 </div>
-                <div className="">
-                    <div className="flex items-center">
-                        <IconSunrise className="size-10 font-medium" />
-                        <div className="">
-                            <h3>Sunrise:</h3>
-                            <span className="block text-lg">{todayForecast?.sunrise}</span>
-                        </div>
-                    </div>
-                    <div className="flex items-center">
-                        <IconSunrise className="size-10 font-medium" />
-                        <div className="">
-                            <h3>Sunrise:</h3>
-                            <span className="block text-lg">{todayForecast?.sunrise}</span>
-                        </div>
-                    </div>
+                <div className="space-y-2">
+                    <SunCondation type='sunrise' time={todayForecast?.sunrise} />
+                    <SunCondation type='sunset' time={todayForecast?.sunset} />
                 </div>
             </div>
             <div className=""></div>
