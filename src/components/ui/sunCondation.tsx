@@ -15,13 +15,7 @@ const SunIcon = React.memo(({type, stroke, className}: subIconType) => {
     return type === 'sunrise' ? <IconSunrise {...combinedProps} /> : <IconSunset {...combinedProps} />
 })
 
-export default function SunCondation({
-    time,
-    type
-}:{
-    time: string
-    type: sunType
-}) {
+export default function SunCondation({time,type}:{time: string, type: sunType}) {
   return (
     <div className="flex items-center gap-2">
         <SunIcon type={type} stroke={1.4} className="size-14 text-gray-600 font-medium" />
