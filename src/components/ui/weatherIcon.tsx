@@ -4,7 +4,7 @@ import WeatherStatus from "../../lib/weatherIconsStatus"
 import { cn } from "../../lib/utils"
 
 type conditionIcon = {
-    time: any,
+    time?: any,
     code: number
     className?: string,
     size: 'sm' | 'md' | "lg"
@@ -33,7 +33,7 @@ export default React.memo(function WeatherIconComponent({code, time, size, class
 
 
     const IconSize = {
-        sm: 'w-5',
+        sm: 'w-8',
         md: 'w-16',
         lg: 'w-44'
     }

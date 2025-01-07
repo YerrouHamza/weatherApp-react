@@ -3,7 +3,7 @@ import api from "../../api";
 
 type WeatherContextType = {
     weatherDetails: any,
-    weatherForecast: any,
+    weatherForecast: any[],
     weatherLocation: any,
     setCity: (value: string) => void
 }
@@ -12,7 +12,7 @@ export const WeatherData = createContext<WeatherContextType | null>(null)
 
 export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => {
     const [weatherDetails, setWeatherDetails] = useState<object>({})
-    const [weatherForecast, setWeatherForecast] = useState<object>({})
+    const [weatherForecast, setWeatherForecast] = useState<any[]>([])
     const [weatherLocation, setWeatherLocation] = useState<object>({})
     const [city, setCity] = useState<string>('london')
 
@@ -21,7 +21,7 @@ export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => 
             .then((res) => {
                 const data = res?.data
                 setWeatherDetails(data?.current)
-                setWeatherForecast(data.forecast)
+                setWeatherForecast(data.forecast?.forecastday)
                 setWeatherLocation(data.location)
             })
             .catch((error) => {
