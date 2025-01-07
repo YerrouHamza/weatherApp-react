@@ -10,12 +10,7 @@ type conditionIcon = {
     size: 'sm' | 'md' | "lg"
 }
 
-export default React.memo(function WeatherIconComponent({
-    code,
-    time,
-    size,
-    className
-}: conditionIcon) {
+export default React.memo(function WeatherIconComponent({code, time, size, className}: conditionIcon) {
     const [icon, setIcon] = useState<string | null>(null)
     
     useEffect(() => {
