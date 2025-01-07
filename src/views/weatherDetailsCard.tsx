@@ -13,7 +13,7 @@ export default function WeatherDetailsCard({className}:{className: string}) {
     console.log(weatherDetails);
 
     useEffect(() => {
-        const todayForecast = weatherForecast?.forecastday
+        const todayForecast = weatherForecast
         if (todayForecast && todayForecast.length > 0) {
             setTodayForecast(todayForecast[0].astro)
         }
