@@ -3,6 +3,7 @@ import { WeatherData } from "../context-api/weatherDataContext";
 import Card from './ui/card'
 import SunCondation from "./ui/sunCondation";
 import CurrentWeatherCondation from "./currentWeatherCondation";
+import TodayWeatherInfo from "./todayWeatherInfo";
 
 export default function WeatherDetailsCard({className}:{className: string}) {
     const [todayForecast, setTodayForecast] = useState<any>({})
@@ -20,9 +21,9 @@ export default function WeatherDetailsCard({className}:{className: string}) {
 
 
     return (
-        <Card className={className} bodyClass="grid grid-cols-3 h-full">
+        <Card className={className} bodyClass="grid grid-cols-3 gap-5 h-full">
             <div className="flex justify-center flex-col gap-7">
-                <div className="">
+                <div>
                     <h4 className="text-6xl font-bold text-gray-800">{weatherDetails.temp_c}°<span>C</span></h4>
                     <h5 className="text-xl font-semibold text-gray-700">Feels Like: {weatherDetails.feelslike_c}°<span>C</span></h5>
                 </div>
@@ -32,9 +33,7 @@ export default function WeatherDetailsCard({className}:{className: string}) {
                 </div>
             </div>
             <CurrentWeatherCondation />
-            <div className="gird grid-cols-2">
-                <div className=""></div>
-            </div>
+            <TodayWeatherInfo weatherInfo={weatherDetails} />
         </Card>
     )
 }
