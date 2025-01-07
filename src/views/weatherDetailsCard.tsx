@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { WeatherData } from "../context-api/weatherDataContext";
-import Card from './ui/card'
-import SunCondation from "./ui/sunCondation";
-import CurrentWeatherCondation from "./currentWeatherCondation";
-import TodayWeatherInfo from "./todayWeatherInfo";
+import Card from '../components/ui/card'
+import SunCondation from "../components/ui/sunCondation";
+import CurrentWeatherCondation from "../components/currentWeatherCondation";
+import TodayWeatherInfo from "../components/todayWeatherInfo";
 
 export default function WeatherDetailsCard({className}:{className: string}) {
     const [todayForecast, setTodayForecast] = useState<any>({})

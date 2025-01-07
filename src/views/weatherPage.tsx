@@ -1,6 +1,7 @@
-import WeatherDetailsCard from '../components/weatherDetailsCard'
-import WeatherLocationCard from '../components/weatherLocationCard'
+import WeatherDetailsCard from './weatherDetailsCard'
+import WeatherLocationCard from './weatherLocationCard'
 import ControlsBar from './controlsBar'
+import WeatherForecastDays from './weatherForecastDays'
 
 export default function WeatherPage() {
   return (
@@ -9,6 +10,8 @@ export default function WeatherPage() {
         <div className="grid grid-cols-7 grid-rows-2 h-[70%] gap-5">
           <WeatherLocationCard className='col-span-3' />
           <WeatherDetailsCard className='col-span-4' />
+          <WeatherForecastDays className='col-span-2' />
+          <WeatherLocationCard className='col-span-5' />
         </div>
     </section>
   )
