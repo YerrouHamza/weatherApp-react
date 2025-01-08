@@ -2,6 +2,7 @@ import WeatherDetailsCard from './weatherDetailsCard'
 import WeatherLocationCard from './weatherLocationCard'
 import ControlsBar from './controlsBar'
 import WeatherForecastDays from './weatherForecastDays'
+import WeatherForecastHourly from './weatherForecastHourly'
 
 export default function WeatherPage() {
   return (
@@ -11,7 +12,7 @@ export default function WeatherPage() {
           <WeatherLocationCard className='col-span-3' />
           <WeatherDetailsCard className='col-span-4' />
           <WeatherForecastDays className='col-span-2' />
-          <WeatherLocationCard className='col-span-5' />
+          <WeatherForecastHourly className='col-span-5' />
         </div>
     </section>
   )
