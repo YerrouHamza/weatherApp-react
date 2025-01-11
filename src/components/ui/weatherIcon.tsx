@@ -4,9 +4,9 @@ import WeatherStatus from "../../lib/weatherIconsStatus"
 import { cn } from "../../lib/utils"
 
 type conditionIcon = {
-    isDay?: any,
     code: number
     className?: string,
+    isDay?: number,
     size: 'sm' | 'md' | "lg"
 }
 
@@ -24,7 +24,7 @@ export default React.memo(function WeatherIconComponent({code, isDay, size, clas
             return setIcon(WeatherStatus.WindSunny)
         }
     
-        if (isDay && isDay === 1) {
+        if (isDay && isDay === 0) {
             return setIcon(WeatherStatus.Moon)
         }
         return setIcon(WeatherStatus.Sunny)
