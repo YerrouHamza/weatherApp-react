@@ -31,7 +31,7 @@ export default function WeatherDetailsCard({className}:{className: string}) {
                     <SunCondation type='sunset' time={todayForecast?.sunset} />
                 </div>
             </div>
-            <CurrentWeatherCondation />
+            <CurrentWeatherCondation currentWeather={weatherDetails} />
             <TodayWeatherInfo weatherInfo={weatherDetails} />
         </Card>
     )
