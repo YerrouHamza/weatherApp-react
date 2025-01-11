@@ -2,8 +2,24 @@ import { IconBrandSpeedtest, IconDroplet, IconUvIndex, IconWindmill } from "@tab
 import React from "react";
 
 
-export default React.memo(function TodayWeatherInfo({weatherInfo}:{weatherInfo: any}) {
-    const weatherInfoItems = [
+type TodayWeatherInfoProps = {
+    weatherInfo: {
+        humidity: number,
+        wind_kph: number,
+        pressure_mb: number,
+        uv: number
+    }
+}
+
+type InfoItemsTyps = {
+    type: CondationType,
+    title: string,
+    value: number,
+    simpo: string
+}
+
+export default React.memo(function TodayWeatherInfo({weatherInfo}: TodayWeatherInfoProps) {
+    const infoItems: InfoItemsTyps[] = [
         {
             type: 'humidity',
             title: 'Humidity',
@@ -32,10 +48,10 @@ export default React.memo(function TodayWeatherInfo({weatherInfo}:{weatherInfo: 
     
     return (
         <div className="grid grid-cols-2 justify-center items-center">
-            {weatherInfoItems.map((item: any) => {
+            {infoItems.map((item: any) => {
                 return (
-                    <WeatherInfoItem type={item.type} title={item.title}>
-                        {item.value}{item.simpo || ''}
+                    <WeatherInfoItem type={item.type} title={item.title} key={item.title}>
+                        {item.value}{item.simpo}
                     </WeatherInfoItem>
                 )
             })}
@@ -51,6 +67,12 @@ type weatherInfoItemType = {
     children: React.ReactNode
 }
 
+type IconType = {
+    type: CondationType,
+    className?: string,
+    stroke?: number
+}
+
 const WeatherInfoItem = React.memo(({type, title, children }: weatherInfoItemType) => {
     return (
         <div className="text-center space-y-1">
@@ -60,12 +82,6 @@ const WeatherInfoItem = React.memo(({type, title, children }: weatherInfoItemTyp
         </div>
     )
 })
-
-type IconType = {
-    type: CondationType,
-    className?: string,
-    stroke?: number
-}
 
 const IconComponent = React.memo(({
     type,

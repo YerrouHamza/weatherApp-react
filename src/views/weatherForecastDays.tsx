@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { WeatherData } from "../context-api/weatherDataContext";
 import Card from "../components/ui/card";
-import ForecastDay from "../components/ui/ForecastDay";
+import ForecastDay from "../components/ui/forecastDay";
 
 export default React.memo(function WeatherForecastDays({className}: {className: string}) {
     const context = useContext(WeatherData)

@@ -10,7 +10,6 @@ export default function WeatherDetailsCard({className}:{className: string}) {
     const context = useContext(WeatherData)
     if(!context) throw new Error('The Data form weather context not work')
     const {weatherDetails, weatherForecast} = context
-    console.log(weatherDetails);
 
     useEffect(() => {
         const todayForecast = weatherForecast
