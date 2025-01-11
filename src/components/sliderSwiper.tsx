@@ -19,9 +19,10 @@ export default React.memo(function SliderSwiper({
         slidesPerView={slidesPerView}
         className={className}
     >
-        {React.Children.map(children, (child) => {
+        {React.Children.map(children, (child, index) => {
+            const rendomKeyId = Math.floor(Math.random() * 1000 + (index + 1));
             return (
-                <SwiperSlide>
+                <SwiperSlide key={rendomKeyId}>
                     {child}
                 </SwiperSlide>
             )
