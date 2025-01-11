@@ -4,15 +4,22 @@ import Button from './ui/button'
 
 
 export default function GetCurrentCity() {
-  const context = useContext(WeatherData);
-  if (!context) throw new Error("GetCurrentCity must be used within a WeatherDataProvider");
-
-  const {weatherDetails ,setCity} = context;
-
-  console.log(weatherDetails);
+  const wethaerContext = useContext(WeatherData);
+  if (!wethaerContext) throw new Error("GetCurrentCity must be used within a WeatherDataProvider");
+  const {fetchCity} = wethaerContext;
   
   const handelGetCurrentCity = async () => {
-    setCity('tetouan')
+    if(!navigator.geolocation) return console.error('Geolocation is not supported by your browser');
+    
+    navigator.geolocation.getCurrentPosition((position) => {
+      try {
+        const {latitude, longitude} = position.coords;
+        const currentLocation = `${latitude},${longitude}`;
+        fetchCity(currentLocation)
+      } catch (error) {
+        console.error('Error while getting the current location', error)
+      }
+    });
   }
 
   return (
