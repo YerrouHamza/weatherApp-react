@@ -4,17 +4,16 @@ import WeatherStatus from "../../lib/weatherIconsStatus"
 import { cn } from "../../lib/utils"
 
 type conditionIcon = {
-    time?: any,
+    isDay?: any,
     code: number
     className?: string,
     size: 'sm' | 'md' | "lg"
 }
 
-export default React.memo(function WeatherIconComponent({code, time, size, className}: conditionIcon) {
+export default React.memo(function WeatherIconComponent({code, isDay, size, className}: conditionIcon) {
     const [icon, setIcon] = useState<string | null>(null)
     
     useEffect(() => {
-        const hour = moment(time).format('HH') as any
         if ([1003, 1006, 1009].includes(code)) {
             return setIcon(WeatherStatus.Cloudy)
         } else if (
@@ -25,11 +24,11 @@ export default React.memo(function WeatherIconComponent({code, time, size, class
             return setIcon(WeatherStatus.WindSunny)
         }
     
-        if (time && (hour >= 18 || hour <= 6)) {
+        if (isDay && isDay === 1) {
             return setIcon(WeatherStatus.Moon)
         }
         return setIcon(WeatherStatus.Sunny)
-    }, [code, time])
+    }, [code, isDay])
 
 
     const IconSize = {
@@ -38,5 +37,5 @@ export default React.memo(function WeatherIconComponent({code, time, size, class
         lg: 'w-44'
     }
 
-    return <img src={icon || ''} alt="" className={cn(IconSize[size], className)} />
+    return <img src={icon || ''} alt="Warther Icon" className={cn(IconSize[size], className)} />
 })

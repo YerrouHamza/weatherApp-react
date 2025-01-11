@@ -36,6 +36,7 @@ export default React.memo(function WeatherForecastHourly({className}:{className:
                         temp={item.temp_c}
                         downTemp={item.dewpoint_c}
                         date={item.time}
+                        isDay={item.is_day}
                       />
                     )
                   })}
