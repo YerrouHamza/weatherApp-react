@@ -1,13 +1,13 @@
 import GetCurrentCity from "../components/getCurrentCity";
 import ThemeMode from "../controllers/themeMode";
-import SerachClity from "../controllers/serachClity";
+import SerachCity from "../controllers/serachCity";
 import Card from "../components/ui/card";
 
 export default function ControlsBar() {
   return (
-    <Card className="h-fit" bodyClass="flex justify-between items-center p-5">
+    <Card className="h-fit relative z-10" bodyClass="flex justify-between items-center p-5">
         <ThemeMode />
-        <SerachClity />
+        <SerachCity />
         <GetCurrentCity />
     </Card>
   )
