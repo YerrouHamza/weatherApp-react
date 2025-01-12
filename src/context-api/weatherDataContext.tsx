@@ -17,7 +17,7 @@ export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => 
     const [weatherLocation, setWeatherLocation] = useState<object>({})
 
     const loaderContext = useContext(LoaderOverlayContext)
-    if (!loaderContext) throw new Error("WeatherDataProvider must be used within a LoaderOverlayProvider");
+    if (!loaderContext) throw new Error('Error while get the loader context')
 
     const {setIsLoading} = loaderContext
 
