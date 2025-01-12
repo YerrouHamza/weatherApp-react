@@ -21,7 +21,7 @@ export default React.memo(function WeatherForecastHourly({className}:{className:
     
     return (
         <Card className={className} bodyClass="text-center">
-            <h2 className="text-3xl font-semibold text-gray-600 mb-10">5 Days Forcasts</h2>
+            <h2 className="text-3xl font-semibold text-gray-600 mb-10">Hourly Forcasts</h2>
             <div className="flex gap-4">
               <SliderSwiper
                 spaceBetween={40}
