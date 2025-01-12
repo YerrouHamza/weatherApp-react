@@ -1,4 +1,4 @@
-export default function TeaxtInput ({
+export default function TextInput ({
     value,
     onChange,
     type = 'text',
