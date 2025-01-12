@@ -7,19 +7,20 @@ export default function Button({
     className,
 }: {
     children: React.ReactNode
-    variant: 'primary' | 'secondary'
+    variant: 'primary' | 'secondary' | 'link',
     onClick?: () => void
     className?: string
 }) {
     const buttonStyle = {
-        primary: 'bg-blue-500 hover:bg-blue-700',
-        secondary: 'bg-gray-500 hover:bg-gray-700',
+        primary: 'text-white bg-blue-500 hover:bg-blue-700',
+        secondary: 'text-white bg-gray-500 hover:bg-gray-700',
+        link: '',
     }
     return (
         <button
             className={`
                 ${buttonStyle[variant]} 
-                text-white font-bold py-3 px-4 rounded-lg
+                font-medium py-3 px-4 rounded-lg
                 ${className}
             `}
             onClick={onClick}
