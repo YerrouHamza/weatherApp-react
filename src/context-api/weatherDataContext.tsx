@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { LoaderOverlayContext } from "./loaderOverlayContext";
+import { createContext, useEffect, useState } from "react";
+import useLoader from "./loaderOverlayContext";
 import api from "../../api";
 
 type WeatherContextType = {
@@ -15,11 +15,7 @@ export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => 
     const [weatherDetails, setWeatherDetails] = useState<object>({})
     const [weatherForecast, setWeatherForecast] = useState<object[]>([])
     const [weatherLocation, setWeatherLocation] = useState<object>({})
-
-    const loaderContext = useContext(LoaderOverlayContext)
-    if (!loaderContext) throw new Error('Error while get the loader context')
-
-    const {setIsLoading} = loaderContext
+    const {setIsLoading} = useLoader()
 
     const fetchCity = async (city?: string) => {
         setIsLoading(true)
