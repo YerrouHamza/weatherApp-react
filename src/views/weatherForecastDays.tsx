@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
-import { WeatherData } from "../context-api/weatherDataContext";
+import React from "react";
+import useWeatherContext from "../context-api/weatherDataContext";
 import Card from "../components/ui/card";
 import ForecastDay from "../components/ui/forecastDay";
 
 export default React.memo(function WeatherForecastDays({className}: {className: string}) {
-    const context = useContext(WeatherData)
-    if(!context) throw new Error('Error while get the weather data');
-    const {weatherForecast} = context
+    const {weatherForecast} = useWeatherContext();
     
     return (
         <Card className={className} bodyClass="text-center">

@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { WeatherData } from "../context-api/weatherDataContext";
+import { useEffect, useState } from "react";
+import useWeatherContext from "../context-api/weatherDataContext";
 import Card from '../components/ui/card'
 import SunCondation from "../components/ui/sunCondation";
 import CurrentWeatherCondation from "../components/currentWeatherCondation";
@@ -7,9 +7,7 @@ import TodayWeatherInfo from "../components/todayWeatherInfo";
 
 export default function WeatherDetailsCard({className}:{className: string}) {
     const [todayForecast, setTodayForecast] = useState<any>({})
-    const context = useContext(WeatherData)
-    if(!context) throw new Error('The Data form weather context not work')
-    const {weatherDetails, weatherForecast} = context
+    const {weatherDetails, weatherForecast} = useWeatherContext();
 
     useEffect(() => {
         const todayForecast = weatherForecast

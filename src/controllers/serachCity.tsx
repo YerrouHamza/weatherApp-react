@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState, useRef } from 'react';
-import { WeatherData } from '../context-api/weatherDataContext';
+import { useEffect, useState, useRef } from 'react';
+import useWeatherContext from '../context-api/weatherDataContext';
 import api from '../../api';
 import SerachField from '../components/ui/searchField';
 import SearchCityList from '../components/searchCityList';
@@ -14,9 +14,7 @@ export default function SerachCity() {
     const {setIsLoading} = useLoader()
 
     const serachRef = useRef<any>(null)
-    const weatherContext = useContext(WeatherData);
-    if (!weatherContext) throw new Error('Error while getting the weather context')
-    const { fetchCity } = weatherContext
+    const {fetchCity} = useWeatherContext();
 
 
     useEffect(() => {

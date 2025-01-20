@@ -1,12 +1,9 @@
 import moment from "moment";
-import { useContext } from "react";
-import { WeatherData } from "../context-api/weatherDataContext";
+import useWeatherContext from "../context-api/weatherDataContext";
 import Card from '../components/ui/card'
 
 export default function WeatherLocationCard({className}:{className: string}) {
-    const context = useContext(WeatherData)
-    if(!context) throw new Error('The Data form weather context not work')
-    const {weatherLocation} = context
+    const {weatherLocation} = useWeatherContext();
 
     return (
         <Card className={className} bodyClass="flex flex-col justify-center items-center h-full">

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import useLoader from "./loaderOverlayContext";
 import api from "../../api";
 
@@ -9,7 +9,7 @@ type WeatherContextType = {
     fetchCity: (value?: string) => void
 }
 
-export const WeatherData = createContext<WeatherContextType | null>(null)
+const WeatherData = createContext<WeatherContextType | null>(null)
 
 export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => {
     const [weatherDetails, setWeatherDetails] = useState<object>({})
@@ -43,4 +43,14 @@ export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => 
             {children}
         </WeatherData.Provider>
     )
+}
+
+
+
+// create custom hook for the weather contxet to make it easy call and use
+export default function useWeatherContext () {
+    const weatherContext = useContext(WeatherData)
+    if (!weatherContext) throw new Error('Error while getting the weather context')
+   
+    return weatherContext
 }
