@@ -3,12 +3,10 @@ import React from "react";
 
 
 type TodayWeatherInfoProps = {
-    weatherInfo: {
-        humidity: number,
-        wind_kph: number,
-        pressure_mb: number,
-        uv: number
-    }
+    humidity: number,
+    wind_kph: number,
+    pressure_mb: number,
+    uv: number
 }
 
 type InfoItemsTyps = {
@@ -18,7 +16,7 @@ type InfoItemsTyps = {
     simpo: string
 }
 
-export default React.memo(function TodayWeatherInfo({weatherInfo}: TodayWeatherInfoProps) {
+export default React.memo(function TodayWeatherInfo({weatherInfo}: {weatherInfo: TodayWeatherInfoProps}) {
     const infoItems: InfoItemsTyps[] = [
         {
             type: 'humidity',
