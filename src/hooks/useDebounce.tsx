@@ -10,7 +10,7 @@ export default function useDebounce(value: string) {
         }, 500)
 
         return (() => clearTimeout(debounsTimer))
-    })
+    }, [debouncedValue, value])
   
     return [debouncedValue] as const
 }
