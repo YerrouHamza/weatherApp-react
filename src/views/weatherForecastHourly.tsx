@@ -19,26 +19,24 @@ export default React.memo(function WeatherForecastHourly({className}:{className:
   return (
       <Card className={className} bodyClass="text-center">
           <h2 className="text-3xl font-semibold text-gray-600 mb-10">Hourly Forcasts</h2>
-          <div className="flex gap-4">
-            <SliderSwiper
-              spaceBetween={40}
-              slidesPerView={7}
-              className="py-5"
-            >
-              {Array(hourlyForecast).length > 0 && hourlyForecast?.map((item: any) => {
-                  return (
-                    <ForecastHourly
-                      key={item.time}
-                      code={item?.condition?.code}
-                      temp={item.temp_c}
-                      downTemp={item.dewpoint_c}
-                      date={item.time}
-                      isDay={item.is_day}
-                    />
-                  )
-                })}
-            </SliderSwiper>
-          </div>
+          <SliderSwiper
+            spaceBetween={40}
+            slidesPerView={7}
+            className="py-5"
+          >
+            {Array(hourlyForecast).length > 0 && hourlyForecast?.map((item: any) => {
+                return (
+                  <ForecastHourly
+                    key={item.time}
+                    code={item?.condition?.code}
+                    temp={item.temp_c}
+                    downTemp={item.dewpoint_c}
+                    date={item.time}
+                    isDay={item.is_day}
+                  />
+                )
+              })}
+          </SliderSwiper>
       </Card>
   )
 })
