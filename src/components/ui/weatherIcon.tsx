@@ -23,7 +23,7 @@ export default React.memo(function WeatherIconComponent({code, isDay, size, clas
     const iconWeatherProps = {className: cn(IconSize[size], className), alt: "Warther Icon"}
 
     if (cloudyCode.includes(code)) {
-        if(code === 1003) return <img src={isDay === 0 ? WeatherStatus.PrettyCloudyMoonIcon : WeatherStatus.PrettyCloudyMoonIcon} {...iconWeatherProps} />
+        if(code === 1003) return <img src={isDay === 0 ? WeatherStatus.PrettyCloudyMoonIcon : WeatherStatus.PrettyCloudyIcon} {...iconWeatherProps} />
         return <img src={WeatherStatus.CloudyIcon} {...iconWeatherProps} />
     } else if (snowCode.includes(code)) {
         return <img src={WeatherStatus.SnowIcon} {...iconWeatherProps} />
