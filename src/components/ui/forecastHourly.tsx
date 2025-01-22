@@ -11,7 +11,7 @@ export default function ForecastHourly ({code, temp, downTemp, date, isDay}: {
 }) {
     return (
         <Card className="w-fit rounded-2xl min-w-[100px] dark:bg-opacity-15 dark:bg-gray-50" bodyClass="flex justify-center items-center flex-col gap-3">
-            <p className="text-md text-gray-700 dark:text-gray-50 font-semibold col-span-3 text-right">{moment(date).format('hh:mm')}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-50 font-semibold col-span-3 text-right">{moment(date).format('hh:mm')}</p>
             <WeatherIconComponent code={code} isDay={isDay} size='sm' />
             <div>
               <p className="text-sm text-gray-700 dark:text-gray-50 font-semibold text-center">{temp}°C</p>

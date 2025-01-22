@@ -4,18 +4,20 @@ import Card from '../components/ui/card'
 import SunCondation from "../components/ui/sunCondation";
 import CurrentWeatherCondition from "../components/currentWeatherCondition";
 import TodayWeatherInfo from "../components/todayWeatherInfo";
+import useThemeMode from "../hooks/useThemeMode";
 
 export default function WeatherDetailsCard({className}:{className: string}) {
     const [todayForecast, setTodayForecast] = useState<any>({})
     const {weatherDetails, weatherForecast} = useWeatherContext();
+    const [themeMode, handleToggleThemeMode] = useThemeMode()
 
     useEffect(() => {
         const todayForecast = weatherForecast
         if (todayForecast && todayForecast.length > 0) {
             setTodayForecast(todayForecast[0].astro)
         }
-    }, [weatherForecast])
-
+        handleToggleThemeMode(weatherDetails?.is_day === 1 ? 'light' : 'dark')
+    }, [weatherForecast, weatherDetails])
 
     return (
         <Card className={className} bodyClass="grid grid-cols-3 gap-5 h-full">
