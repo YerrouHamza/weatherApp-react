@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useWeatherContext from "../context-api/weatherDataContext";
 import Card from '../components/ui/card'
 import SunCondation from "../components/ui/sunCondation";
-import CurrentWeatherCondation from "../components/currentWeatherCondation";
+import CurrentWeatherCondition from "../components/currentWeatherCondition";
 import TodayWeatherInfo from "../components/todayWeatherInfo";
 
 export default function WeatherDetailsCard({className}:{className: string}) {
@@ -29,7 +29,7 @@ export default function WeatherDetailsCard({className}:{className: string}) {
                     <SunCondation type='sunset' time={todayForecast?.sunset} />
                 </div>
             </div>
-            <CurrentWeatherCondation currentWeather={weatherDetails} />
+            <CurrentWeatherCondition currentWeather={weatherDetails} />
             <TodayWeatherInfo weatherInfo={weatherDetails} />
         </Card>
     )

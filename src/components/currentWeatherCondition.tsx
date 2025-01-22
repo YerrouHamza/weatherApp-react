@@ -1,16 +1,16 @@
 import WeatherIconComponent from './ui/weatherIcon';
 
-export default function CurrentWeatherCondation({currentWeather}:{currentWeather: any}) {
-  const condation = currentWeather?.condation
+export default function CurrentWeatherCondition({currentWeather}:{currentWeather: any}) {
+  const condition = currentWeather?.condition
 
   return (
     <div className='flex flex-col justify-center items-center gap-8'>
         <WeatherIconComponent 
-          code={condation?.code}
+          code={condition?.code}
           isDay={currentWeather?.is_day}
           size='lg'
         />
-        <h4 className='text-2xl font-semibold text-gray-800'>{condation?.text}</h4>
+        <h4 className='text-2xl font-semibold text-gray-800'>{condition?.text}</h4>
     </div>
   )
 }
