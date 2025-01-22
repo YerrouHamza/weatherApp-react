@@ -53,7 +53,7 @@ export default function SerachCity() {
 
     return (
         <div 
-            className="relative w-full max-w-xl z-10" 
+            className="relative w-full max-w-2xl z-10" 
             ref={serachRef} 
             onFocus={() => setSearchFocus(true)}
             onBlur={handleUnFoucs}

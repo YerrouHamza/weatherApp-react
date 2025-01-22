@@ -75,8 +75,8 @@ const WeatherInfoItem = React.memo(({type, title, children }: weatherInfoItemTyp
     return (
         <div className="text-center space-y-1">
             <IconComponent type={type} />
-            <p className="text-sm font-semibold">{children}</p>
-            <h5 className="text-md font-medium text-gray-700">{title}</h5>
+            <p className="text-sm font-semibold dark:text-gray-50">{children}</p>
+            <h5 className="text-md font-medium text-gray-700 dark:text-gray-200">{title}</h5>
         </div>
     )
 })

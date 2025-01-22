@@ -10,7 +10,7 @@ export default function CurrentWeatherCondition({currentWeather}:{currentWeather
           isDay={currentWeather?.is_day}
           size='lg'
         />
-        <h4 className='text-2xl font-semibold text-gray-800'>{condition?.text}</h4>
+        <h4 className='text-2xl font-semibold text-gray-800 dark:text-gray-100'>{condition?.text}</h4>
     </div>
   )
 }

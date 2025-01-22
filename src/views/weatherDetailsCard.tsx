@@ -21,8 +21,8 @@ export default function WeatherDetailsCard({className}:{className: string}) {
         <Card className={className} bodyClass="grid grid-cols-3 gap-5 h-full">
             <div className="flex justify-center flex-col gap-7">
                 <div>
-                    <h4 className="text-6xl font-bold text-gray-800">{weatherDetails.temp_c}°<span>C</span></h4>
-                    <h5 className="text-xl font-semibold text-gray-700">Feels Like: {weatherDetails.feelslike_c}°<span>C</span></h5>
+                    <h4 className="text-6xl font-bold text-gray-800 dark:text-gray-100">{weatherDetails.temp_c}°<span>C</span></h4>
+                    <h5 className="text-xl font-semibold text-gray-700 dark:text-gray-300">Feels Like: {weatherDetails.feelslike_c}°<span>C</span></h5>
                 </div>
                 <div className="space-y-2">
                     <SunCondation type='sunrise' time={todayForecast?.sunrise} />

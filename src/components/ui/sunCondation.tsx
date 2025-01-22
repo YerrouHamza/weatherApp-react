@@ -18,10 +18,10 @@ const SunIcon = React.memo(({type, stroke, className}: subIconType) => {
 export default function SunCondation({time,type}:{time: string, type: sunType}) {
   return (
     <div className="flex items-center gap-2">
-        <SunIcon type={type} stroke={1.4} className="size-14 text-gray-600 font-medium" />
+        <SunIcon type={type} stroke={1.4} className="size-14 text-gray-600 dark:text-gray-200 font-medium" />
         <div>
-            <h3 className="text-xl text-gray-700 font-medium capitalize">{type}</h3>
-            <span className="block text-md font-semibold">{time}</span>
+            <h3 className="text-xl text-gray-700 dark:text-gray-300 font-medium capitalize">{type}</h3>
+            <span className="block text-md font-semibold dark:text-gray-100">{time}</span>
         </div>
     </div>
   )

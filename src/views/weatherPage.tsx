@@ -6,7 +6,7 @@ import WeatherForecastHourly from './weatherForecastHourly'
 
 export default function WeatherPage() {
   return (
-    <section className="max-w-screen-xl mx-auto py-10 px-4 space-y-12 h-screen">
+    <section className="max-w-screen-xl mx-auto py-10 px-4 space-y-16">
         <ControlsBar />
         <div className="grid grid-cols-7 grid-rows-2 h-[70%] gap-5">
           <WeatherLocationCard className='col-span-3' />
