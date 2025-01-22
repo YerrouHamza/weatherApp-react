@@ -18,6 +18,8 @@ export default function SerachCity() {
 
 
     useEffect(() => {
+        if(!search) return
+        
         setIsLoading(true);
         api.get(`search.json?q=${search}`)
             .then((res) => {
