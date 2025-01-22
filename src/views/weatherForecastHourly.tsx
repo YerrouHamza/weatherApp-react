@@ -12,7 +12,14 @@ export default React.memo(function WeatherForecastHourly({className}:{className:
   useEffect(() => {
     const currentDate = moment(weatherLocation.localtime).format('yyyy-MM-DD')
     const currentDayDate = weatherForecast.find(item => item?.date === currentDate)
-    const nextHourlyData = currentDayDate?.hour.filter((hour: any) => moment(hour.time).isSameOrAfter(moment(weatherLocation.localtime).format('yyyy-MM-DD hh:mm')))
+    const nextHourlyData = currentDayDate?.hour.filter((hour: any) => moment(hour.time).isSameOrAfter(moment(weatherLocation.localtime).format('yyyy-MM-DD hh:mm a')))
+    
+    if(Array(nextHourlyData).length < 10) {
+      const nextDayDate = moment(currentDate).add(1, 'days').format('yyyy-MM-DD');
+      const nextDayHourlyWither = weatherForecast?.find(item => item?.date === nextDayDate)?.hour?.splice(12);
+      const finalHourlyData = [nextHourlyData, nextDayHourlyWither];
+      return setHourlyForecast(finalHourlyData?.flat(1) as [])
+    }
     setHourlyForecast(nextHourlyData)
   }, [weatherForecast, weatherLocation])
   
