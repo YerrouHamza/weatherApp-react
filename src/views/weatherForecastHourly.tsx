@@ -31,10 +31,11 @@ export default React.memo(function WeatherForecastHourly({className}:{className:
             slidesPerView={7}
             className="py-5"
           >
-            {hourlyForecast?.map((item: any) => {
+            {hourlyForecast?.map((item: any, index: number) => {
+                const randomKeyId = Math.floor(Math.random() * 1000 + index);
                 return (
                   <ForecastHourly
-                    key={item?.time}
+                    key={randomKeyId}
                     code={item?.condition?.code}
                     temp={item?.temp_c}
                     downTemp={item?.dewpoint_c}
