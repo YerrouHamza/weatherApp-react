@@ -9,7 +9,7 @@ export default React.memo(function ForecastDay ({code, temp, date}: {
     date: string
 }) {
     return (
-        <div className="flex justify-between gap-4">
+        <div className="flex justify-between items-center gap-4">
             <div className="flex items-center gap-3">
                 <WeatherIconComponent code={code} size='sm' />
                 <p className="text-sm xl:text-lg text-gray-700 dark:text-gray-100 font-semibold text-center">{temp}°C</p>
