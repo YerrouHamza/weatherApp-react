@@ -32,7 +32,7 @@ To install and run the Weather App locally, follow these steps:
 3. **Set up WeatherAPI key**:
 
    - Open the **/api.ts** file located in the root directory.
-   - Replace the [key](http://_vscodecontentref_/1) parameter in the [api.interceptors.request.use](http://_vscodecontentref_/2) method with your WeatherAPI key.
+   - Replace the **key** parameter in the **api.interceptors.request.use** method with your WeatherAPI key.
 
 4. **Run the development server**:
 
