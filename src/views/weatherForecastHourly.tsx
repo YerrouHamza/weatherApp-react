@@ -10,18 +10,26 @@ export default React.memo(function WeatherForecastHourly({className}:{className:
   const {weatherForecast, weatherLocation} = useWeatherContext();
 
   useEffect(() => {
-    const currentDate = moment(weatherLocation.localtime).format('yyyy-MM-DD')
-    const currentDayDate = weatherForecast.find(item => item?.date === currentDate)
-    const nextHourlyData = currentDayDate?.hour.filter((hour: any) => moment(hour.time).isSameOrAfter(moment(weatherLocation.localtime).format('yyyy-MM-DD hh:mm a')))
+    const dateFormat = 'YYYY-MM-DD hh:mm a';
+    const currentDate = moment(weatherLocation.localtime, dateFormat).format('YYYY-MM-DD');
+    const currentDayDate = weatherForecast.find(item => item?.date === currentDate);
     
-    if(Array(nextHourlyData).length < 10) {
-      const nextDayDate = moment(currentDate).add(1, 'days').format('yyyy-MM-DD');
-      const nextDayHourlyWither = weatherForecast?.find(item => item?.date === nextDayDate)?.hour?.splice(12);
+    const nextHourlyData = currentDayDate?.hour.filter((hour: any) =>
+      moment(hour.time, dateFormat).isSameOrAfter(moment(weatherLocation.localtime, dateFormat))
+    );
+  
+    if (Array(nextHourlyData).length < 10) {
+      const nextDayDate = moment(currentDate, 'YYYY-MM-DD').add(1, 'days').format('YYYY-MM-DD');
+      const nextDayHourlyWither = weatherForecast
+        ?.find(item => item?.date === nextDayDate)
+        ?.hour?.splice(0, 12);
+  
       const finalHourlyData = [nextHourlyData, nextDayHourlyWither];
-      return setHourlyForecast(finalHourlyData?.flat(1) as [])
+      return setHourlyForecast(finalHourlyData?.flat(1) as []);
     }
-    setHourlyForecast(nextHourlyData)
-  }, [weatherForecast, weatherLocation])
+  
+    setHourlyForecast(nextHourlyData);
+  }, [weatherForecast, weatherLocation]);
   
   return (
       <Card className={className} bodyClass="text-center">
