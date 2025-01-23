@@ -45,7 +45,7 @@ export default React.memo(function TodayWeatherInfo({weatherInfo}: {weatherInfo:
     ];
     
     return (
-        <div className="grid grid-cols-2 justify-center items-center">
+        <div className="grid grid-cols-2 justify-center items-center gap-4 w-full max-w-md m-auto">
             {infoItems.map((item: any) => {
                 return (
                     <WeatherInfoItem type={item.type} title={item.title} key={item.title}>

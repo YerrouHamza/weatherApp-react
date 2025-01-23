@@ -27,11 +27,11 @@ export default React.memo(function WeatherForecastHourly({className}:{className:
       <Card className={className} bodyClass="text-center">
           <h2 className="text-2xl font-semibold text-gray-600 dark:text-gray-100 mb-5 mt-3">Next Hourly Forecasts</h2>
           <SliderSwiper
-            spaceBetween={40}
+            spaceBetween={20}
             slidesPerView={7}
             className="py-5"
           >
-            {Array(hourlyForecast).length > 0 && hourlyForecast?.map((item: any) => {
+            {hourlyForecast?.map((item: any) => {
                 return (
                   <ForecastHourly
                     key={item?.time}

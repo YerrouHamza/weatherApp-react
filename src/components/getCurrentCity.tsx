@@ -25,7 +25,7 @@ export default function GetCurrentCity() {
   }
 
   return (
-    <Button variant="primary" className="text-sm" onClick={handelGetCurrentCity}>
+    <Button variant="primary" className="text-sm w-full md:w-fit" onClick={handelGetCurrentCity}>
         Use current location
     </Button>
   )

@@ -29,7 +29,6 @@ export default React.memo(function SliderSwiper({
         <Swiper
             modules={[Navigation]}
             spaceBetween={spaceBetween}
-            slidesPerView={slidesPerView}
             className={className}
             onBeforeInit={(swiper) => {
                 swiperInstanceRef.current = swiper;
@@ -40,10 +39,36 @@ export default React.memo(function SliderSwiper({
                 navigation.nextEl = nextButtonRef.current;
                 }
             }}
+            breakpoints={{
+              0: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              400: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              585: {
+                slidesPerView: 5,
+                spaceBetween: 40,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 6,
+                spaceBetween: 40,
+              },
+              1124: {
+                slidesPerView: slidesPerView,
+                spaceBetween: 50,
+              }
+            }}
         >
         {React.Children.map(children, (child, index) => {
             const randomKeyId = Math.floor(Math.random() * 1000 + (index + 1));
-            return <SwiperSlide key={randomKeyId}>{child}</SwiperSlide>;
+            return ( <SwiperSlide key={randomKeyId}>{child}</SwiperSlide>)
         })}
         </Swiper>
 
