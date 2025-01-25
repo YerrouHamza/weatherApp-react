@@ -2,6 +2,11 @@
 
 This Weather App is built using React and Vite. It provides real-time weather information, including current conditions, hourly forecasts, and daily forecasts. The app uses the [WeatherAPI](https://www.weatherapi.com/) to fetch weather data and displays it in a user-friendly interface.
 
+Becouse the WeatherAPI is a paid service, I have used a free key, so the app will work only on the localhost, so i will provide you small image demo of the app.
+
+![weatherApp](/src/assets/preview/light-weatherApp-React.jpeg)
+![weatherApp](/src/assets/preview/dark-weatherApp-React.png)
+
 ## Features
 
 - **Current Weather**: Displays the current weather conditions, including temperature, humidity, wind speed, and more.
@@ -32,7 +37,7 @@ To install and run the Weather App locally, follow these steps:
 3. **Set up WeatherAPI key**:
 
    - Open the **/api.ts** file located in the root directory.
-   - Replace the **key** parameter in the **api.interceptors.request.use** method with your WeatherAPI key.
+   - Replace the [key](http://_vscodecontentref_/1) parameter in the [api.interceptors.request.use](http://_vscodecontentref_/2) method with your WeatherAPI key.
 
 4. **Run the development server**:
 
