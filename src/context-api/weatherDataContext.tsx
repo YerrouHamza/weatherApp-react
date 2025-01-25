@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import useLoader from "./loaderOverlayContext";
+import useLoader from "../hooks/useLoader";
 import api from "../../api";
 
 type WeatherContextType = {
@@ -15,7 +15,7 @@ export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => 
     const [weatherDetails, setWeatherDetails] = useState<object>({})
     const [weatherForecast, setWeatherForecast] = useState<object[]>([])
     const [weatherLocation, setWeatherLocation] = useState<object>({})
-    const {setIsLoading} = useLoader()
+    const {setIsLoading, stopLoader} = useLoader()
 
     const fetchCity = async (city?: string) => {
         setIsLoading(true)
@@ -26,10 +26,10 @@ export const WeatherDataProvider = ({children}: {children: React.ReactNode}) => 
                 setWeatherDetails(data?.current)
                 setWeatherForecast(data.forecast?.forecastday)
                 setWeatherLocation(data.location)
-                setIsLoading(false)
+                stopLoader();
             })
             .catch((error) => {
-                setIsLoading(false)
+                stopLoader();
                 throw new Error('Error while request the data from API', error)
             })
     }

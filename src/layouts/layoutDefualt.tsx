@@ -1,6 +1,6 @@
 import React from "react";
 import LoaderOverlay from "../components/ui/loaderOverlay";
-import useLoader from "../context-api/loaderOverlayContext";
+import useLoader from "../hooks/useLoader";
 
 export default function LayoutDefualt({children}: {children: React.ReactNode}) {
     const {isLoading} = useLoader()

@@ -1,29 +1,30 @@
 import useWeatherContext from '../context-api/weatherDataContext';
-import useLoader from '../context-api/loaderOverlayContext';
+import useLoader from '../hooks/useLoader';
 import Button from './ui/button'
 
 
 export default function GetCurrentCity() {
-  const { setIsLoading } = useLoader()
+  const { stopLoader, setIsLoading } = useLoader()
   const {fetchCity} = useWeatherContext();
   
   const handelGetCurrentCity = async () => {   
     if(!navigator.geolocation) {
-      setIsLoading(false)
       return console.error('Geolocation is not supported by your browser');
     }
     
-    navigator.geolocation.getCurrentPosition((position) => {
-      setIsLoading(true)
-      try {
+    setIsLoading(true)
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
         const {latitude, longitude} = position.coords;
         const currentLocation = `${latitude},${longitude}`;
         fetchCity(currentLocation)
-      } catch (error) {
-        setIsLoading(false)
+        stopLoader();
+      },
+      (error) => {
+        stopLoader();
         console.error('Error while getting the current location', error)
       }
-    });
+    )
   }
 
   return (

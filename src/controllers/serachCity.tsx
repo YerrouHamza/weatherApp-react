@@ -4,14 +4,14 @@ import api from '../../api';
 import SerachField from '../components/ui/searchField';
 import SearchCityList from '../components/searchCityList';
 import useDebounce from '../hooks/useDebounce';
-import useLoader from '../context-api/loaderOverlayContext';
+import useLoader from '../hooks/useLoader';
 
 export default function SerachCity() {
     const [search, setSearch] = useState('');
     const [city, setCity] = useState([]);
     const [searchFocus, setSearchFocus] = useState(false)
     const [debouncedValue] = useDebounce(search)
-    const {setIsLoading} = useLoader()
+    const {setIsLoading, stopLoader} = useLoader()
 
     const serachRef = useRef<any>(null)
     const {fetchCity} = useWeatherContext();
@@ -26,13 +26,11 @@ export default function SerachCity() {
                 const data = res?.data
                 setCity(data)
 
-                setTimeout(() => {
-                    setIsLoading(false)
-                }, 300)
+                stopLoader();
             })
             .catch((error) => {
                 console.error('Error while request the data from API', error)
-                setIsLoading(false)
+                stopLoader();
             })
     }, [debouncedValue])
 
