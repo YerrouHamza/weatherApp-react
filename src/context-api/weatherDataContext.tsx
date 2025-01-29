@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import useLoader from "../hooks/useLoader";
-import api from "../../api";
+import api from "../auth/api";
 
 type WeatherContextType = {
     weatherDetails: any,

@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import useWeatherContext from '../context-api/weatherDataContext';
-import api from '../../api';
+import api from '../auth/api';
 import SerachField from '../components/ui/searchField';
 import SearchCityList from '../components/searchCityList';
 import useDebounce from '../hooks/useDebounce';
